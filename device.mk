@@ -22,6 +22,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/libsec_ecryptfs.so:recovery/root/sbin/libsec_ecryptfs.so \
     $(LOCAL_PATH)/recovery/libsec_km.so:recovery/root/sbin/libsec_km.so
 
+# SELinux
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/file_contexts:recovery/root/file_contexts \
+    $(LOCAL_PATH)/property_contexts:recovery/root/property_contexts \
+    $(LOCAL_PATH)/seapp_contexts:recovery/root/seapp_contexts \
+    $(LOCAL_PATH)/sepolicy:recovery/root/sepolicy \
+    $(LOCAL_PATH)/sepolicy_version:recovery/root/sepolicy_version
+
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_NAME := samsung_hltetmo
