@@ -3,7 +3,8 @@
 /system        ext4      /dev/block/platform/msm_sdcc.1/by-name/system
 /data          ext4      /dev/block/platform/msm_sdcc.1/by-name/userdata      length=-16384
 /cache         ext4      /dev/block/platform/msm_sdcc.1/by-name/cache
-/efs           emmc      /dev/block/platform/msm_sdcc.1/by-name/modemst1      flags=backup=1;display=EFS
+/efs           emmc      /dev/block/platform/msm_sdcc.1/by-name/efs		      flags=backup=1;display=EFS
+/efs           emmc      /dev/block/platform/msm_sdcc.1/by-name/modemst1      flags=backup=1;subpartitionof=/efs
+/efs           emmc      /dev/block/platform/msm_sdcc.1/by-name/modemst2      flags=backup=1;subpartitonof=/efs
 /external_sd   vfat      /dev/block/mmcblk1p1 /dev/block/mmcblk1              flags=display="Micro SDcard";storage;wipeingui;removable
-/modem         emmc      /dev/block/platform/msm_sdcc.1/by-name/apnhlos
-/mdm           emmc      /dev/block/platform/msm_sdcc.1/by-name/modem
+/modem         emmc      /dev/block/platform/msm_sdcc.1/by-name/modem		  flags=backup=1;display="Modem"
