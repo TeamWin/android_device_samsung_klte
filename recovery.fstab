@@ -8,4 +8,4 @@
 /efs           emmc      /dev/block/platform/msm_sdcc.1/by-name/modemst2      flags=backup=1;subpartitionof=/efs
 /external_sd   vfat      /dev/block/mmcblk1p1 /dev/block/mmcblk1              flags=display="Micro SDcard";storage;wipeingui;removable
 /modem         emmc      /dev/block/platform/msm_sdcc.1/by-name/modem		  flags=backup=1;display="Modem"
-/usbstorage	   vfat		 /dev/block/sda1									  flags=backup=;display="USB Storage"
+/usbstorage	   vfat		 /dev/block/sda1									  flags=display="USB Storage"
