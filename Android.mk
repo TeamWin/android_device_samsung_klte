@@ -1,3 +1,3 @@
-ifneq ($(filter hltetmo,$(TARGET_DEVICE)),)
+ifneq ($(filter klte,$(TARGET_DEVICE)),)
     include $(all-subdir-makefiles)
 endif
