@@ -43,6 +43,8 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 #BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/klte/custombootimg.mk
 
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
 #TWRP specific build flags
 DEVICE_RESOLUTION := 1080x1920
 RECOVERY_SDCARD_ON_DATA := true
