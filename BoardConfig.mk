@@ -48,7 +48,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 #TWRP specific build flags
 DEVICE_RESOLUTION := 1080x1920
 RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #TW_BRIGHTNESS_PATH := "/sys/devices/mdp.0/qcom\x2cmdss_fb_primary.160/leds/lcd-backlight/brightness"
@@ -69,4 +68,4 @@ TW_CRYPTO_FS_FLAGS := "0x00000406"
 TW_CRYPTO_KEY_LOC := "footer"
 TW_NO_EXFAT_FUSE := true
 TW_NO_EXFAT := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true
+GET_RECOVERY_QCOM_RTC_FIX := true
