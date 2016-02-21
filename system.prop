@@ -1,0 +1,15 @@
+ro.hardware=qcom
+ro.lcd_min_brightness=0
+ro.lcd_brightness=162
+ro.sf.lcd_density=480
+persist.sys.usb.config=mtp,adb
+debug.sf.hw=1
+debug.egl.hw=1
+debug.mdpcomp.logs=0
+dev.pm.dyn_samplingrate=1
+debug.composition.type=gpu
+persist.hwc.mdpcomp.enable=true
+debug.mdpcomp.idletime=100
+debug.mdpcomp.fallback=false
+persist.fuse_sdcard=true
+ro.qualcomm.bt.hci_transport=smd
