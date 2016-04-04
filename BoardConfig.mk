@@ -67,9 +67,9 @@ TW_MTP_DEVICE := "/dev/mtp_usb"
 # Encryption support
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_SAMSUNG := true
-TWRP_INCLUDE_LOGCAT := true
+#TWRP_INCLUDE_LOGCAT := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TARGET_USES_LOGD := true
+#TARGET_USES_LOGD := true
 
 # Init properties from bootloader version, ex. model info
 TARGET_UNIFIED_DEVICE := true
