@@ -49,46 +49,39 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 		/* klteatt */
 		property_set("ro.product.model", "SM-G900A");
 		property_set("ro.product.name", "klteuc");
-		property_set("ro.product.device", "klteatt");
 	} else if (strstr(bootloader, "G900W8")) {
 		/* kltecan */
 		property_set("ro.product.name", "kltevl");
 		property_set("ro.product.model", "SM-G900W8");
-		property_set("ro.product.device", "kltecan");
 	} else if (strstr(bootloader, "G900P")) {
 		/* kltespr */
 		property_set("ro.product.model", "SM-G900P");
 		property_set("ro.product.name", "kltespr");
-		property_set("ro.product.device", "kltespr");
 	} else if (strstr(bootloader, "G900T")) {
 		/* kltetmo */
 		property_set("ro.product.model", "SM-G900T");
 		property_set("ro.product.name", "kltetmo");
-		property_set("ro.product.device", "kltetmo");
 	} else if (strstr(bootloader, "G900R4")) {
 		/* klteusc */
 		property_set("ro.product.model", "SM-G900R4");
 		property_set("ro.product.name", "klteusc");
-		property_set("ro.product.device", "klteusc");
 	} else if (strstr(bootloader, "G900V")) {
 		/* kltevzw */
 		property_set("ro.product.model", "SM-G900V");
 		property_set("ro.product.name", "kltevzw");
-		property_set("ro.product.device", "kltevzw");
 	} else if (strstr(bootloader, "G900M")) {
 		/* klteub */
 		property_set("ro.product.model", "SM-G900M");
 		property_set("ro.product.name", "klteub");
-		property_set("ro.product.device", "klteub");
+
 	} else if (strstr(bootloader, "G900I")) {
 		/* kltedv */
 		property_set("ro.product.model", "SM-G900I");
 		property_set("ro.product.name", "kltedv");
-		property_set("ro.product.device", "kltedv");
 	} else {
 		/* all other variants become klte */
 		property_set("ro.product.model", "SM-G900F");
 		property_set("ro.product.name", "kltexx");
-		property_set("ro.product.device", "klte");
 	}
+	property_set("ro.product.device", "klte");
 }

@@ -1,8 +1,8 @@
 [
 	{
-		"remote":"TeamWin",
-		"repository":"android_device_qcom_common",
+		"remote":"github",
+		"repository":"CyanogenMod/android_device_qcom_common",
 		"target_path":"device/qcom/common",
-		"revision":"android-6.0"
+		"revision":"cm-13.0"
 	}
 ]
