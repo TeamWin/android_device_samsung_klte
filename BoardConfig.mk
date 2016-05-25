@@ -33,13 +33,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x2E59F7C00 # 0x2E59FBC00 - 16384 (footer)
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 0x00C800000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-ifdef KLTE_MARSHMALLOW
-	TARGET_PREBUILT_KERNEL := device/samsung/klte/zImage-M
-	TARGET_PREBUILT_DTB := device/samsung/klte/dtb.img-M
-else
-	TARGET_PREBUILT_KERNEL := device/samsung/klte/zImage-L
-	TARGET_PREBUILT_DTB := device/samsung/klte/dtb.img-L
-endif
+TARGET_PREBUILT_KERNEL := device/samsung/klte/zImage
+TARGET_PREBUILT_DTB := device/samsung/klte/dtb.img
 
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
