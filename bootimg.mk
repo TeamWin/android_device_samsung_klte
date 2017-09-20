@@ -1,29 +1,21 @@
-MKBOOTIMG := device/samsung/klte/mkbootimg
+LOCAL_PATH := $(call my-dir)
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
-
-BUILT_RAMDISK_CPIO := $(PRODUCT_OUT)/ramdisk-recovery.cpio
-COMPRESS_COMMAND := xz --format=lzma --lzma1=dict=16MiB -9
 
 ifdef TARGET_PREBUILT_DTB
 	BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DTB)
 endif
 
-INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
-$(INSTALLED_RECOVERYIMAGE_TARGET): $(recovery_ramdisk)
-	@echo "------- Compressing recovery ramdisk -------"
-	$(hide) $(COMPRESS_COMMAND) "$(BUILT_RAMDISK_CPIO)"
-	@echo "------- Making recovery image -------"
-	$(hide) $(MKBOOTIMG) \
-		--kernel $(TARGET_PREBUILT_KERNEL) \
-		--ramdisk $(BUILT_RAMDISK_CPIO).lzma \
-		--cmdline "$(BOARD_KERNEL_CMDLINE)" \
-		--base $(BOARD_KERNEL_BASE) \
-		--pagesize $(BOARD_KERNEL_PAGESIZE) \
-		$(BOARD_MKBOOTIMG_ARGS) \
-		-o $(INSTALLED_RECOVERYIMAGE_TARGET)
-	@echo "------- Made recovery image: $@ -------"
+$(recovery_ramdisk): $(recovery_uncompressed_ramdisk)
+	@echo -e ${CL_GRN}"----- Compressing recovery ramdisk (xz) ------"${CL_RST}
+	$(hide) xz -9c --format=lzma --lzma1=dict=16MiB $< > $@
+
+$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) $(recovery_kernel) $(recovery_ramdisk)
+	@echo -e ${CL_GRN}"----- Making recovery image ------"${CL_RST}
+	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --output $@ --ramdisk $(recovery_ramdisk)
+	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
+	@echo -e ${CL_GRN}"----- Lying about SEAndroid state to Samsung bootloader ------"${CL_RST}
 	$(hide) echo -n "SEANDROIDENFORCE" >> $(INSTALLED_RECOVERYIMAGE_TARGET)
-	@echo "------- Lied about SEAndroid state to Samsung bootloader -------"
+	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	$(hide) tar -C $(PRODUCT_OUT) -H ustar -c recovery.img > $(FLASH_IMAGE_TARGET)
-	@echo "------- Made flashable image: $(FLASH_IMAGE_TARGET) -------"
+	@echo -e ${CL_CYN}"Made Odin flashable recovery tar: ${FLASH_IMAGE_TARGET}"${CL_RST}
