@@ -70,5 +70,6 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Init properties from bootloader version, ex. model info
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/klte/init/init_klte.cpp
+TARGET_INIT_VENDOR_LIB := libinit_klte
+TARGET_RECOVERY_DEVICE_MODULES := libinit_klte
+TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_TREE)/init/init_klte.cpp
