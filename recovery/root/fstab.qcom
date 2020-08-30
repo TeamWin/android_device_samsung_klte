@@ -7,12 +7,11 @@
 /dev/block/platform/msm_sdcc.1/by-name/system				/system			ext4		ro,errors=panic													wait
 /dev/block/platform/msm_sdcc.1/by-name/userdata				/data			f2fs		noatime,nosuid,nodev,nodiratime,discard,inline_xattr						wait,encryptable=footer
 /dev/block/platform/msm_sdcc.1/by-name/userdata				/data			ext4		nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic	wait,check,encryptable=footer
+/dev/block/platform/msm_sdcc.1/by-name/persistent     /persistent  emmc    defaults                                       defaults 
+
 
 # VOLD
+/dev/block/platform/msm_sdcc.1/by-name/hidden 		/preload	ext4    defaults    	voldmanaged=preload:auto
+
 /devices/msm_sdcc.3/mmc_host/mmc2							/storage/extSdCard	vfat		default															voldmanaged=sdcard:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveA	vfat		default															voldmanaged=sda:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveB	vfat		default															voldmanaged=sdb:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveC	vfat		default															voldmanaged=sdc:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveD	vfat		default															voldmanaged=sdd:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveE	vfat		default															voldmanaged=sde:auto
-/devices/platform/xhci-hcd/usb2,/devices/platform/xhci-hcd/usb1	/storage/UsbDriveF	vfat		default															voldmanaged=sdf:auto
+/devices/platform/xhci-hcd/usb*	auto		auto	defaults		voldmanaged=usb:auto
