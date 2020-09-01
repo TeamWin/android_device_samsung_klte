@@ -2,7 +2,7 @@
 /firmware		vfat		/dev/block/platform/msm_sdcc.1/by-name/apnhlos	flags=backup=1;subpartitionof=/modem;mounttodecrypt;fsflags=ro,context=u:object_r:firmware_file:s0
 /boot		emmc		/dev/block/platform/msm_sdcc.1/by-name/boot
 /recovery		emmc		/dev/block/platform/msm_sdcc.1/by-name/recovery	flags=backup=1
-/system		ext4		/dev/block/platform/msm_sdcc.1/by-name/system
+/system		ext4		/dev/block/platform/msm_sdcc.1/by-name/system flags=flashimg=1
 /data		ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata	flags=encryptable=footer;length=-16384
 /cache		ext4		/dev/block/platform/msm_sdcc.1/by-name/cache
 /efs			ext4		/dev/block/platform/msm_sdcc.1/by-name/efs		flags=backup=1;display="EFS"
@@ -11,4 +11,3 @@
 /external_sd	vfat		/dev/block/mmcblk1p1 /dev/block/mmcblk1			flags=display="Micro SDcard";storage;wipeingui;removable
 /usbstorage	vfat		/dev/block/sda1 /dev/block/sda				flags=display="USB Storage";storage;wipeingui;removable
 /misc		emmc		/dev/block/platform/msm_sdcc.1/by-name/fota
-/system_image  emmc    /dev/block/platform/msm_sdcc.1/by-name/system    flags=flashimg=1
